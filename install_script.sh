@@ -49,8 +49,8 @@ function sys_clean(){
 	sed -i '/iptables -A INPUT -p icmp -j ACCEPT/d' /etc/rc.d/rc.local
 	sed -i '/iptables -A INPUT -p tcp --dport 22 -j ACCEPT/d' /etc/rc.d/rc.local
 	sed -i '/iptables -I INPUT -p tcp --dport 80 -j ACCEPT/d' /etc/rc.d/rc.local
-	sed -i '/iptables -A INPUT -p tcp --dport 1542 -j ACCEPT/d' /etc/rc.d/rc.local
-	sed -i '/iptables -A INPUT -p udp --dport 1542 -j ACCEPT/d' /etc/rc.d/rc.local
+	sed -i '/iptables -A INPUT -p tcp --dport 6252 -j ACCEPT/d' /etc/rc.d/rc.local
+	sed -i '/iptables -A INPUT -p udp --dport 6252 -j ACCEPT/d' /etc/rc.d/rc.local
 	sed -i '/iptables -A INPUT -j DROP/d' /etc/rc.d/rc.local
 	sed -i '/iptables -t nat -F/d' /etc/rc.d/rc.local
 	sed -i '/iptables -t nat -A POSTROUTING -s 10.12.0.0\/24 -o eth0 -j MASQUERADE/d' /etc/rc.d/rc.local
@@ -152,8 +152,8 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -A INPUT -p icmp -j ACCEPT
 iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 iptables -I INPUT -p tcp --dport 80 -j ACCEPT
-iptables -A INPUT -p tcp --dport 1542 -j ACCEPT
-iptables -A INPUT -p udp --dport 1542 -j ACCEPT
+iptables -A INPUT -p tcp --dport 6252 -j ACCEPT
+iptables -A INPUT -p udp --dport 6252 -j ACCEPT
 iptables -A INPUT -j DROP
 iptables -t nat -F
 iptables -t nat -A POSTROUTING -s 10.12.0.0/24 -o eth0 -j MASQUERADE
